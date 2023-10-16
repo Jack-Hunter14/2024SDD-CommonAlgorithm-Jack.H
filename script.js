@@ -32,20 +32,13 @@ function bubbleSort (sortArray) {
                 sortArray[n] += sortArray[n + 1];
                 sortArray[n + 1] = sortArray[n] - sortArray[n + 1];
                 sortArray[n] = sortArray[n] - sortArray[n + 1];
-                if (n == startpoint) {
-                    startpoint--;
-                }
             } else {
                 correct++;
-                if (correct == sortArray.length) {
+                if (correct == endpoint) {
                     i = sortArray.length;
-                }
-                if (n == startpoint) {
-                    startpoint++;
+                    n = endpoint;
                 }
             }
-            console.log(sortArray);
-            console.log(endpoint);
             loops++;
         }
     }
