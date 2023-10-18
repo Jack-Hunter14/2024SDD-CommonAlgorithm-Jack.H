@@ -2,8 +2,10 @@
 document.getElementById("ScriptThisDIV").innerHTML = "Debug the innerHTML"; //Output to the DOM (Document Object Module) with the id="ScriptThisDIV"
 console.log("Debug the console log"); //Output to the console (Open dev tools and look at the console)
  
-let myArray = [8, 9, 6, 1, 0, 3, 5, 7, 2, 4 ];
+let myArray = randomiseArray();
+highestValue(myArray);
 bubbleSort(myArray);
+insertionSort(myArray);
 
 let swapArray = [3, 7]
 
@@ -16,6 +18,14 @@ function swapValues (a, b) {
    a = PARSE right "@" of a;
    */
    //console.log("after: " + a + " " + b);
+}
+
+function randomiseArray() {
+    randomArray = [];
+    for (i = 0; i < 10; i++) {
+        randomArray[i] = Math.floor(Math.random() * 100) + 1;
+    }
+    return randomArray;
 }
 
 function bubbleSort (sortArray) {
@@ -42,6 +52,30 @@ function bubbleSort (sortArray) {
             loops++;
         }
     }
-    console.log(sortArray);
-    console.log(loops);
+    console.log("bubble sort: " + sortArray);
+    console.log("bubble loops: " + loops);
+}
+
+function highestValue (searchArray) {
+    currentValue = searchArray[0];
+    for (i = 0; i < searchArray.length; i++) {
+        if (currentValue < searchArray[i + 1]) {
+            currentValue = searchArray[i + 1];
+        }
+    }
+    console.log("highest value: " + currentValue);
+}
+
+function insertionSort (sortArray) {
+    loops = 0;
+    for (i = 1; i < sortArray.length; i++) {
+        if (sortArray[i] > sortArray[i + 1]) {
+            sortArray[i] += sortArray[i + 1];
+            sortArray[i + 1] = sortArray[i] - sortArray[i + 1];
+            sortArray[i] -= sortArray[i + 1];
+        }
+        loops++;
+    }
+    console.log("insertion sort: " + sortArray);
+    console.log("insertion loops: " + loops);
 }
