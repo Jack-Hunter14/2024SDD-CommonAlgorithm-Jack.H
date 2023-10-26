@@ -1,5 +1,4 @@
 //alert("Hello, world"); //Output to windows alert box
-document.getElementById("ScriptThisDIV").innerHTML = "Debug the innerHTML"; //Output to the DOM (Document Object Module) with the id="ScriptThisDIV"
 console.log("Debug the console log"); //Output to the console (Open dev tools and look at the console)
  
 /*
@@ -43,3 +42,20 @@ RETURN a ^ b
 END SUBROUTINE
 */
 
+var num1 = Math.floor(Math.random() * 100) + 1;
+var num2 = Math.floor(Math.random() * 100) + 1;
+console.log("num1: " + num1 + ", num2: " + num2);
+var pressed = "**(1/";
+calculate(num1, num2, pressed);
+
+function calculate(a, b, operator) {
+    a = String(a);
+    b = String(b);
+    var result = a + operator + b;
+    if (operator == "**(1/") {
+        result += ")";
+    }
+    console.log("calculate: " + result);
+    result = eval(result);
+    console.log("result: " + result);
+}
